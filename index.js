@@ -1,6 +1,8 @@
 var boxes = document.querySelectorAll(".box");
 var reset =  document.querySelector(".Reset");
 
+var x = true;
+
 const winPattern =  [
     [0, 1, 2],
     [0, 4, 8],
@@ -15,5 +17,21 @@ const winPattern =  [
 for(var i = 0; i < 9 ; i++){
     boxes[i].addEventListener("click", function(){
         console.log("clicked");
+        console.log(this);
+        if(x){
+            this.innerHTML = "X";
+            x = false;
+        }
+        else{
+            this.innerHTML = "O";
+            x = true;
+        }
+        this.disabled = true;
+        checkwinner();
+
     })
+}
+
+function checkwinner(){
+    console.log(winPattern);
 }

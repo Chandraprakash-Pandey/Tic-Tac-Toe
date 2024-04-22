@@ -37,6 +37,7 @@ h1{
     border: none;
     box-shadow: 5px 3px 0rem rgb(0,0,0,0.5);
     color: rgb(224, 45, 45);
+    background-color: beige;
 }
 
 .Reset{
