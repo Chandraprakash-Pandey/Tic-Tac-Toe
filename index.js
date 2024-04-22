@@ -16,8 +16,8 @@ const winPattern =  [
 
 for(var i = 0; i < 9 ; i++){
     boxes[i].addEventListener("click", function(){
-        console.log("clicked");
-        console.log(this);
+        // console.log("clicked");
+        // console.log(this);
         if(x){
             this.innerHTML = "X";
             x = false;
@@ -27,11 +27,15 @@ for(var i = 0; i < 9 ; i++){
             x = true;
         }
         this.disabled = true;
-        checkwinner();
+
+        checkWinner();
 
     })
 }
 
-function checkwinner(){
-    console.log(winPattern);
-}
+const checkWinner = () => {
+    for(let pattern of winPattern){
+        console.log(pattern[0], pattern[1], pattern[2]);
+        console.log(boxes[pattern[0]], boxes[pattern[1]], boxes[pattern[2]]);
+    }
+};
