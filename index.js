@@ -1,7 +1,7 @@
 var boxes = document.querySelectorAll(".box");
 var reset =  document.querySelector(".Reset");
-
 var x = true;
+let winner = document.querySelector("p");
 
 const winPattern =  [
     [0, 1, 2],
@@ -35,7 +35,22 @@ for(var i = 0; i < 9 ; i++){
 
 const checkWinner = () => {
     for(let pattern of winPattern){
-        console.log(pattern[0], pattern[1], pattern[2]);
-        console.log(boxes[pattern[0]], boxes[pattern[1]], boxes[pattern[2]]);
+        let pos1val = boxes[pattern[0]].innerHTML;
+        let pos2val = boxes[pattern[1]].innerHTML;
+        let pos3val = boxes[pattern[2]].innerHTML;
+
+        if(pos1val != "" && pos2val != "" && pos3val != ""){
+            if(pos1val === pos2val && pos2val === pos3val){
+                console.log("winner", pos1val);
+                for(var i = 0; i < 9 ; i++){
+                    boxes[i].disabled = true;
+                }
+                winner.style.display = "inline";
+            }
+        }
     }
 };
+
+reset.addEventListener("click", function (){
+    
+})
